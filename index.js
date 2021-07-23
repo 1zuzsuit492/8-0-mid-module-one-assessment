@@ -26,7 +26,15 @@ const animals = [
  * getTotalCount(animals); //> 28
  * getTotalCount([]); //> 0 // returns 0 if the input array is empty
  */
-function getTotalCount(animals) {}
+function getTotalCount(animals) {
+  let sum = 0 //default value for total number of animals
+
+  for(let i = 0; i < animals.length; i++){ //determine the loop
+    sum = sum + animals[i].count //note to self, you could've saved a lot of time if you would've just added [i]
+}
+return sum
+}
+// (getTotalCount(animals))
 
 /**
  * FUNCTION DESCRIPTION
@@ -40,8 +48,15 @@ function getTotalCount(animals) {}
  * getAllKinds(animals); //> ["Pig", "Cow", "Chicken", "Horse", "Dog", "Cat"]
  * getAllKinds([]); //> [] // returns empty array if input array is empty
  */
-function getAllKinds(animals) {}
+function getAllKinds(animals) {
+  let animalTypes = [] //default value for string array
 
+  for(let i = 0; i < animals.length; i++){ //loop di loop//
+  animalTypes.push(animals[i].kind) //note the [i] goes with the array name!!!!
+  } 
+  return animalTypes; //returning the 'kind' values of the obj
+}
+// getAllKinds(animals)
 /**
  * FUNCTION DESCRIPTION
  * ------------------
@@ -59,8 +74,21 @@ function getAllKinds(animals) {}
   ];
  * filterByCountMinimum([], 3); //> [] // returns empty array if input array is empty
  */
-function filterByCountMinimum(animals, minimum) {}
+function filterByCountMinimum(animals, minimum) {
+  //if statement involving >=?//
+  //returning an array//
+  //.push(animals[i].count??)
+  
+  let newArray = [] //default value
 
+  for(i = 0; i < animals.length; i++){
+  if(animals.count >= minimum){
+  newArray.push(animals[i].count)
+  }
+}
+return newArray;
+}
+//(filterByCountMinimum(animals))
 /**
  * FUNCTION DESCRIPTION
  * ------------------
@@ -73,7 +101,25 @@ function filterByCountMinimum(animals, minimum) {}
  * getMostCommonAnimal(animals); //> { kind: "Chicken", count: 11 }
  * getMostCommonAnimal([]); //> null // returns null if the input is empty
  */
-function getMostCommonAnimal(animals) {}
+function getMostCommonAnimal(animals) {
+//make variable for count?..//
+//if statements//
+let highcount = animals[0] //thanks Colin!
+
+  // let common = {} note: you didnt need to do this. read @returns again.
+
+for(i = 0; i < animals.length; i++){ //loop
+const animal = animals[i]; //variable is now the whole array, since it only has one index
+if(animal.count > highcount.count){
+  highcount = animal;
+}
+else if(animal.count === 0){
+return null;
+}
+}
+return highcount; //dude, be proud of yourself :)
+}
+console.log(getMostCommonAnimal(animals))
 
 // Do not change anything below this line.
 module.exports = {
